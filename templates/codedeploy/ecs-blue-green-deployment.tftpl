@@ -1,0 +1,32 @@
+---
+Version: '2012-10-17'
+Statement:
+  - Sid: RegisterTaskDefinition
+    Effect: Allow
+    Action:
+      - ecs:RegisterTaskDefinition
+      - ecs:DescribeTaskDefinition
+    Resource: '*'
+
+  - Sid: PassRolesInTaskDefinition
+    Effect: Allow
+    Action: iam:PassRole
+    Resource:
+      - arn:aws:iam::${aws_account_id}:role/${task_definition_task_role_name}
+      - arn:aws:iam::${aws_account_id}:role/${task_definition_task_execution_role_name}
+
+  - Sid: ECSDeployment
+    Effect: Allow
+    Action:
+      - ecs:UpdateService
+      - ecs:DescribeServices
+      - codedeploy:RegisterApplicationRevision
+      - codedeploy:GetDeploymentGroup
+      - codedeploy:GetDeploymentConfig
+      - codedeploy:GetDeployment
+      - codedeploy:CreateDeployment
+    Resource:
+      - arn:aws:ecs:${aws_region}:${aws_account_id}:service/${ecs_cluster_name}/${ecs_service_name}
+      - arn:aws:codedeploy:${aws_region}:${aws_account_id}:deploymentgroup:${codedeploy_application_name}/${codedeploy_deployment_group_name}
+      - arn:aws:codedeploy:${aws_region}:${aws_account_id}:deploymentconfig:*
+      - arn:aws:codedeploy:${aws_region}:${aws_account_id}:application:${codedeploy_application_name}

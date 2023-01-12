@@ -1,0 +1,20 @@
+---
+Version: '2012-10-17'
+Statement:
+  - Sid: ECRAuthorization
+    Effect: Allow
+    Action: ecr:GetAuthorizationToken
+    Resource: '*'
+
+  - Sid: ECRPushAndPull
+    Effect: Allow
+    Action:
+      - ecr:UploadLayerPart
+      - ecr:PutImage
+      - ecr:InitiateLayerUpload
+      - ecr:GetDownloadUrlForLayer
+      - ecr:DescribeImageScanFindings
+      - ecr:CompleteLayerUpload
+      - ecr:BatchGetImage
+      - ecr:BatchCheckLayerAvailability
+    Resource: arn:aws:ecr:${aws_region}:${aws_account_id}:repository/${ecr_repository}
