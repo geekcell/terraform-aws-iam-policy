@@ -20,9 +20,14 @@ content: |-
   {{- end }}
 
   # Examples
-    ### Full
+    ### Statements
     ```hcl
-    {{ include "examples/basic-example/main.tf" }}
+    {{ include "examples/statements/main.tf" }}
+    ```
+
+      ### Templates
+    ```hcl
+    {{ include "examples/templates/main.tf" }}
     ```
 
 output:

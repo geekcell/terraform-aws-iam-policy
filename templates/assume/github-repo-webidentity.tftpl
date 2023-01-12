@@ -1,0 +1,19 @@
+---
+Version: '2012-10-17'
+Statement:
+  - Sid: AuthorizeRepository
+    Effect: Allow
+    Action: sts:AssumeRoleWithWebIdentity
+
+    Principal:
+      Federated: arn:aws:iam::${aws_account_id}:oidc-provider/token.actions.githubusercontent.com
+
+    Condition:
+      ForAnyValue:StringLike:
+        token.actions.githubusercontent.com:sub:
+          - repo:${repository_name}:ref:refs/tags/${allowed_tags}
+          - repo:${repository_name}:ref:refs/heads/${allowed_branches}
+
+          %{~ if allow_prs }
+          - repo:${repository_name}:pull_request
+          %{endif}
