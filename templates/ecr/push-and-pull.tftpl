@@ -17,4 +17,4 @@ Statement:
       - ecr:CompleteLayerUpload
       - ecr:BatchGetImage
       - ecr:BatchCheckLayerAvailability
-    Resource: arn:aws:ecr:${aws_region}:${aws_account_id}:repository/${ecr_repository}
+    Resource: arn:aws:ecr:${aws_region}:${aws_account_id}:repository/${ecr_repository_name}
