@@ -27,6 +27,6 @@ Statement:
       - codedeploy:CreateDeployment
     Resource:
       - arn:aws:ecs:${aws_region}:${aws_account_id}:service/${ecs_cluster_name}/${ecs_service_name}
-      - arn:aws:codedeploy:${aws_region}:${aws_account_id}:deploymentgroup:${codedeploy_application_name}/${codedeploy_deployment_group_name}
+      - arn:aws:codedeploy:${aws_region}:${aws_account_id}:deploymentgroup:${codedeploy_app_name}/${codedeploy_deployment_group_name}
       - arn:aws:codedeploy:${aws_region}:${aws_account_id}:deploymentconfig:*
-      - arn:aws:codedeploy:${aws_region}:${aws_account_id}:application:${codedeploy_application_name}
+      - arn:aws:codedeploy:${aws_region}:${aws_account_id}:application:${codedeploy_app_name}
