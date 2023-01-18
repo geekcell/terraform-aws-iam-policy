@@ -13,7 +13,7 @@ Statement:
     Action: iam:PassRole
     Resource:
       - arn:aws:iam::${aws_account_id}:role/${task_definition_task_role_name}
-      - arn:aws:iam::${aws_account_id}:role/${task_definition_task_execution_role_name}
+      - arn:aws:iam::${aws_account_id}:role/${task_definition_execution_role_name}
 
   - Sid: ECSDeployment
     Effect: Allow
