@@ -33,10 +33,22 @@
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/geekcell/terraform-aws-iam-policy/hipaa)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=geekcell%2Fterraform-aws-iam-policy&benchmark=HIPAA)
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/geekcell/terraform-aws-iam-policy/fedramp_moderate)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=geekcell%2Fterraform-aws-iam-policy&benchmark=FEDRAMP+%28MODERATE%29)
 
-# Terraform AWS IAM Policy Module
+# Terraform AWS IAM Policy
 
-IAM policy module which allows creating policies from statements or use remote
-templates to render policies.
+Introducing the AWS IAM Policy Collection Terraform Module, a comprehensive solution for managing your AWS Identity
+and Access Management (IAM) policies. This module has been carefully crafted to include the most commonly used
+policies in our setups, making it easier for you to manage and secure your AWS resources.
+
+Our team of experts has worked with AWS IAM policies for years and has a deep understanding of the best practices
+and configurations. By using this Terraform module, you can be sure that your policies are created and managed in
+a secure, efficient, and scalable manner.
+
+This module offers a one-stop-shop for all your IAM policy needs, saving you time and effort in the process. Whether
+you're looking to grant access to specific AWS services or to limit the actions that can be performed on your
+resources, this module has you covered.
+
+So, if you're looking for a convenient and reliable solution for managing your IAM policies, look no further than
+the AWS IAM Policy Collection Terraform Module. Give it a try and see the difference it can make in your AWS setup!
 
 ## Inputs
 
@@ -68,12 +80,12 @@ templates to render policies.
 
 ## Resources
 
-- resource.aws_iam_policy.main (main.tf#90)
-- data source.aws_caller_identity.current (main.tf#29)
-- data source.aws_iam_policy_document.combined (main.tf#82)
-- data source.aws_iam_policy_document.statement (main.tf#37)
-- data source.aws_iam_policy_document.template (main.tf#33)
-- data source.aws_region.current (main.tf#25)
+- resource.aws_iam_policy.main (main.tf#101)
+- data source.aws_caller_identity.current (main.tf#40)
+- data source.aws_iam_policy_document.combined (main.tf#93)
+- data source.aws_iam_policy_document.statement (main.tf#48)
+- data source.aws_iam_policy_document.template (main.tf#44)
+- data source.aws_region.current (main.tf#36)
 
 # Examples
 ### Statements
@@ -100,7 +112,6 @@ module "s3_policy" {
   ]
 }
 ```
-
 ### Templates
 ```hcl
 module "codedeploy_policy" {
