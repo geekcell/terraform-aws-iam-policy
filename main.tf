@@ -1,10 +1,21 @@
 /**
- * # Terraform AWS IAM Policy Module
+ * # Terraform AWS IAM Policy
  *
- * IAM policy module which allows creating policies from statements or use remote
- * templates to render policies.
+ * Introducing the AWS IAM Policy Collection Terraform Module, a comprehensive solution for managing your AWS Identity
+ * and Access Management (IAM) policies. This module has been carefully crafted to include the most commonly used
+ * policies in our setups, making it easier for you to manage and secure your AWS resources.
+ *
+ * Our team of experts has worked with AWS IAM policies for years and has a deep understanding of the best practices
+ * and configurations. By using this Terraform module, you can be sure that your policies are created and managed in
+ * a secure, efficient, and scalable manner.
+ *
+ * This module offers a one-stop-shop for all your IAM policy needs, saving you time and effort in the process. Whether
+ * you're looking to grant access to specific AWS services or to limit the actions that can be performed on your
+ * resources, this module has you covered.
+ *
+ * So, if you're looking for a convenient and reliable solution for managing your IAM policies, look no further than
+ * the AWS IAM Policy Collection Terraform Module. Give it a try and see the difference it can make in your AWS setup!
  */
-
 locals {
   # Gather global variables passed to all templates
   templates_globals = length(var.templates) > 0 ? {
