@@ -9,11 +9,8 @@ Statement:
       Federated: arn:aws:iam::${aws_account_id}:oidc-provider/token.actions.githubusercontent.com
 
     Condition:
-      ForAnyValue:StringLike:
+      StringEquals:
         token.actions.githubusercontent.com:sub:
-          - repo:${repository_name}:ref:refs/tags/${allowed_tags}
-          - repo:${repository_name}:ref:refs/heads/${allowed_branches}
-
-          %{~ if allow_prs }
-          - repo:${repository_name}:pull_request
-          %{endif}
+          - repo:${repository_name}:environment:Production
+        token.actions.githubusercontent.com:aud:
+          - sts.amazonaws.com
