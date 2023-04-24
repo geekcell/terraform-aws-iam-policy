@@ -26,6 +26,7 @@ Statement:
       - codedeploy:GetDeployment
       - codedeploy:CreateDeployment
       - codedeploy:ContinueDeployment
+      - codedeploy:StopDeployment
     Resource:
       - arn:aws:ecs:${aws_region}:${aws_account_id}:service/${ecs_cluster_name}/${ecs_service_name}
       - arn:aws:codedeploy:${aws_region}:${aws_account_id}:deploymentgroup:${codedeploy_app_name}/${codedeploy_deployment_group_name}
