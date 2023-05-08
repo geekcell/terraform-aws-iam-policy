@@ -1,7 +1,7 @@
 module "s3_policy" {
   source = "../../"
 
-  name = "web-app"
+  name = var.name
   statements = [
     {
       effect = "Allow"
