@@ -117,7 +117,7 @@ module "s3_policy" {
 module "codedeploy_policy" {
   source = "../../"
 
-  name      = "web-app"
+  name      = var.name
   templates = [
     {
       name = "codedeploy/ecs-blue-green-deployment"
