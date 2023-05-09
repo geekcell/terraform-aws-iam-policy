@@ -39,6 +39,4 @@ jobs:
 
       - name: Run Tests
         working-directory: test
-        env:
-          AWS_TESTING_ACCOUNT: arn:aws:iam::${{ vars.AWS_TESTING_ACCOUNT_ID }}:root
         run: go test -v -timeout 30m

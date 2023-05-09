@@ -28,13 +28,12 @@ type Policy struct {
 }
 
 func TestTerraformStatements(t *testing.T) {
-	roleName := "terraform-test-iam-policy-" + GetShortId()
+	roleName := "terraform-test-iam-policy-statements-" + GetShortId()
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		TerraformDir: "../examples/statements",
 		Vars: map[string]interface{}{
-			"name":    roleName,
-			"account": os.Getenv("AWS_TESTING_ACCOUNT"),
+			"name": roleName,
 		},
 	})
 
