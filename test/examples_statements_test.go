@@ -75,8 +75,21 @@ func TestTerraformStatements(t *testing.T) {
 	assert.Equal(t, 1, len(policy.Statement))
 	assert.Equal(t, "", policy.Statement[0].Sid)
 	assert.Equal(t, "Allow", policy.Statement[0].Effect)
-	assert.Equal(t, 5, len(policy.Statement[0].Action))
-	assert.Equal(t, 2, len(policy.Statement[0].Resource))
+
+	expectedActions := []string{
+		"s3:GetObject",
+		"s3:PutObject",
+		"s3:PutObjectAcl",
+		"s3:ListBucket",
+		"s3:DeleteObject",
+	}
+	assert.Equal(t, 0, len(Difference(expectedActions, policy.Statement[0].Action)))
+
+	expectedResources := []string{
+		"arn:aws:s3:::my-bucket",
+		"arn:aws:s3:::my-bucket/*",
+	}
+	assert.Equal(t, 0, len(Difference(expectedResources, policy.Statement[0].Resource)))
 }
 
 func FilterPolicies(t *testing.T, name string, roles []*iam.Policy) *iam.Policy {

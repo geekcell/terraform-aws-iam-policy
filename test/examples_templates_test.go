@@ -164,8 +164,8 @@ func AssertStatement(
 	for _, statement := range statements {
 		sidMatches := sid == statement.Sid
 		effectMatches := effect == statement.Effect
-		resourceMatches := 0 == len(difference(resource, statement.Resource))
-		actionMatches := 0 == len(difference(action, statement.Action))
+		resourceMatches := 0 == len(Difference(resource, statement.Resource))
+		actionMatches := 0 == len(Difference(action, statement.Action))
 
 		if sidMatches && effectMatches && resourceMatches && actionMatches {
 			return
@@ -178,7 +178,7 @@ func AssertStatement(
 	)
 }
 
-func difference(a, b []string) []string {
+func Difference(a, b []string) []string {
 	mb := make(map[string]struct{}, len(b))
 	for _, x := range b {
 		mb[x] = struct{}{}
