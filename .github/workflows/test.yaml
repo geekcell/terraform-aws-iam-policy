@@ -11,13 +11,16 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.repository }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: false
 
 jobs:
   test:
     name: Terraform Tests
     runs-on: ubuntu-latest
+    env:
+      AWS_REGION: ${{ vars.AWS_TESTING_REGION }}
+      AWS_TESTING_ACCOUNT_ID: ${{ vars.AWS_TESTING_ACCOUNT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
