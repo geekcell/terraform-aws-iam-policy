@@ -1,0 +1,24 @@
+---
+Version: '2012-10-17'
+Statement:
+  - Sid: ListBucket
+    Effect: Allow
+    Action:
+      - s3:GetBucketLocation
+      - s3:ListBucket
+      - s3:ListBuckets
+    Resource: '${bucket_arn}'
+
+  - Sid: DownloadObjects
+    Effect: Allow
+    Action:
+      - s3:GetObject
+      - s3:GetObjectAcl
+    Resource: '${bucket_arn}/*'
+
+  - Sid: KMS
+    Effect: Allow
+    Action:
+      - kms:Decrypt
+      - kms:GenerateDataKey
+    Resource: '${kms_arn}'
