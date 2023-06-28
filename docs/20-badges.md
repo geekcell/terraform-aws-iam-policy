@@ -4,6 +4,7 @@
 [![Release](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/release.yaml/badge.svg)](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/release.yaml)
 [![Validate](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/validate.yaml/badge.svg)](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/validate.yaml)
 [![Lint](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/linter.yaml/badge.svg)](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/linter.yaml)
+[![Test](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/test.yaml/badge.svg)](https://github.com/geekcell/terraform-aws-iam-policy/actions/workflows/test.yaml)
 
 ### Security
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/geekcell/terraform-aws-iam-policy/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=geekcell%2Fterraform-aws-iam-policy&benchmark=INFRASTRUCTURE+SECURITY)
