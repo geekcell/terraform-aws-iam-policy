@@ -58,6 +58,7 @@ the AWS IAM Policy Collection Terraform Module. Give it a try and see the differ
 | <a name="input_create_policy"></a> [create\_policy](#input\_create\_policy) | Whether to create the actual policy resource or to only render it. | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input\_description) | Description of the Security Group. | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the policy. | `string` | n/a | yes |
+| <a name="input_path"></a> [path](#input\_path) | Path in which to create the policy. | `string` | `"/"` | no |
 | <a name="input_policy_id"></a> [policy\_id](#input\_policy\_id) | ID for the policy document. | `string` | `null` | no |
 | <a name="input_statements"></a> [statements](#input\_statements) | A map of principals which can assume the role. | <pre>list(object({<br>    sid    = optional(string)<br>    effect = optional(string, "Allow")<br><br>    actions     = optional(list(string))<br>    not_actions = optional(list(string))<br><br>    resources     = optional(list(string))<br>    not_resources = optional(list(string))<br><br>    conditions = optional(list(object({<br>      test     = string<br>      variable = string<br>      values   = list(string)<br>    })))<br><br>    principals = optional(list(object({<br>      type        = string<br>      identifiers = list(string)<br>    })))<br><br>    not_principals = optional(list(object({<br>      type        = string<br>      identifiers = list(string)<br>    })))<br>  }))</pre> | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to add to the Security Group. | `map(any)` | `{}` | no |
@@ -89,9 +90,9 @@ the AWS IAM Policy Collection Terraform Module. Give it a try and see the differ
 - data source.aws_region.current (main.tf#36)
 
 # Examples
-### Statements
-```hcl
-module "s3_policy" {
+  ### Statements
+  ```hcl
+  module "s3_policy" {
   source = "../../"
 
   name = var.name
@@ -112,11 +113,11 @@ module "s3_policy" {
     }
   ]
 }
-```
+  ```
 
-### Templates
-```hcl
-module "codedeploy_policy" {
+  ### Templates
+  ```hcl
+  module "codedeploy_policy" {
   source = "../../"
 
   name = var.name
@@ -142,5 +143,5 @@ module "codedeploy_policy" {
     }
   ]
 }
-```
+  ```
 <!-- END_TF_DOCS -->

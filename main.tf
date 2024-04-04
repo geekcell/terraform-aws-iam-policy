@@ -104,6 +104,7 @@ resource "aws_iam_policy" "main" {
   name        = var.use_name_prefix ? null : var.name
   name_prefix = var.use_name_prefix ? var.name : null
   description = var.description
+  path        = var.path
   policy      = data.aws_iam_policy_document.combined.json
 
   tags = merge({ Name = var.name }, var.tags)
