@@ -39,6 +39,12 @@ variable "use_name_prefix" {
   type        = bool
 }
 
+variable "path" {
+  description = "Path in which to create the policy."
+  default     = "/"
+  type        = string
+}
+
 variable "policy_id" {
   description = "ID for the policy document."
   default     = null
