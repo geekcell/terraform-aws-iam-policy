@@ -90,9 +90,9 @@ the AWS IAM Policy Collection Terraform Module. Give it a try and see the differ
 - data source.aws_region.current (main.tf#36)
 
 # Examples
-  ### Statements
-  ```hcl
-  module "s3_policy" {
+### Statements
+```hcl
+module "s3_policy" {
   source = "../../"
 
   name = var.name
@@ -113,11 +113,11 @@ the AWS IAM Policy Collection Terraform Module. Give it a try and see the differ
     }
   ]
 }
-  ```
+```
 
-  ### Templates
-  ```hcl
-  module "codedeploy_policy" {
+### Templates
+```hcl
+module "codedeploy_policy" {
   source = "../../"
 
   name = var.name
@@ -143,5 +143,5 @@ the AWS IAM Policy Collection Terraform Module. Give it a try and see the differ
     }
   ]
 }
-  ```
+```
 <!-- END_TF_DOCS -->
